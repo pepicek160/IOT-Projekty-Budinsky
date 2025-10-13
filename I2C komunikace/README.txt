@@ -1,1 +1,1 @@
-I2C jse nezprovoznil, několikrát jsem to zapojoval jinak, pak jsem si však vyhledal že to nefunguje.
+I2C jsem nezprovoznil, MicroPython na pico nepodporuje slave, takže přenos dat se nepodařilo zprovoznit, ikdyž se nám to nepovedlo, stejně jsem získal nějaké zkušenostti, ale musím říct že už jsem byl zoufalý, jak to furt nešlo. UART však už fungoval.

@@ -1,0 +1,1 @@
+Zapojení jsem si vyhledal na internetu a bez problému, dělal jsem s pico_10_temp_light cvičeními stihl jsem však jen první a druhé ale myslím že i ostatní cvičení byly v pořádku a dají se zvládnout uplně v pohodě.
