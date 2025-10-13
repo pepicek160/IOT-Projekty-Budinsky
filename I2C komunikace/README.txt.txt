@@ -1,0 +1,1 @@
+I2C jse nezprovoznil, několikrát jsem to zapojoval jinak, pak jsem si však vyhledal že to nefunguje.

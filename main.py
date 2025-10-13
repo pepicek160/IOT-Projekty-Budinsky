@@ -1,31 +1,14 @@
-from machine import Pin, PWM
-import time, urandom
+from machine import Pin, UART
+import time
 
-# LED piny
-red = Pin(4, Pin.OUT)
-yellow = Pin(3, Pin.OUT)
-green = Pin(2, Pin.OUT)
-
-# Buzzer pin s PWM
-buzzer = PWM(Pin(5))
-
-leds = [red, yellow, green]
-
-def buzz(duration=0.1, freq=4000):
-    buzzer.freq(freq)       # frekvence v Hz
-    buzzer.duty_u16(32768)  # 50% hlasitost (rozsah 0–65535)
-    time.sleep(duration)
-    buzzer.duty_u16(0)      # vypnout
+uart = UART(0, tx=Pin(0), rx=Pin(1), baudrate=9600)
+led = Pin("LED", Pin.OUT)
 
 while True:
-    # Vyber náhodnou LED
-    led = leds[urandom.getrandbits(2) % len(leds)]
-    
-    # Rozsviť ji
-    led.value(1)
-    buzz(0.05, 2000)  # krátké pípnutí
-    time.sleep(urandom.getrandbits(3) / 10)  # 0–0.7 s
-    
-    # Zhasni ji
-    led.value(0)
-    time.sleep(urandom.getrandbits(4) / 10)  # 0–1.5 s
+    if uart.any():
+        data = uart.read(1)
+        if data == b'1':
+            led.value(1)  # rozsvítí LED
+    else:
+        led.value(0)      # zhasne, pokud nic nepřichází
+    time.sleep(0.01)
