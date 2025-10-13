@@ -1,0 +1,1 @@
+zapojení a jak na to jsme si našli na youtube a vše fungovalo tak jak má.
